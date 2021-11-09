@@ -60,7 +60,7 @@ const createQuadruplets = (arr1, arr2) => {
 };
 
 // Function for creating nine-men squads
-const createSquads = (arr1, arr2, arr3) => {
+const createSquads = (arr1, arr2, arr3, budget) => {
   const squadsArr = [];
   arr1.forEach((item1) => {
     arr2.forEach((item2) => {
@@ -89,7 +89,7 @@ const createSquads = (arr1, arr2, arr3) => {
           }
         );
 
-        if (isSquadValid(squadTeams) && squadBudget <= 90) {
+        if (isSquadValid(squadTeams) && squadBudget <= budget) {
           const squadObj = {
             squadLineup,
             squadIds,
@@ -120,14 +120,14 @@ const createSquads = (arr1, arr2, arr3) => {
   return { squadsArr, playersTally };
 };
 
-const createTeams = (pg, sg, sf, pf, c) => {
+const createTeams = (pg, sg, sf, pf, c, budget) => {
   const pgDoubles = createDoubles(pg);
   const sgDoubles = createDoubles(sg);
   const sfDoubles = createDoubles(sf);
   const pfDoubles = createDoubles(pf);
   const guards = createQuadruplets(pgDoubles, sgDoubles);
   const forwards = createQuadruplets(sfDoubles, pfDoubles);
-  const allSquads = createSquads(guards, forwards, c);
+  const allSquads = createSquads(guards, forwards, c, budget);
 
   return allSquads;
 };
