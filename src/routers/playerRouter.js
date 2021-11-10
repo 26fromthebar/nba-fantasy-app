@@ -5,7 +5,7 @@ const { calculateBestPlayers, createTeams } = require('../utils/utils');
 const router = new express.Router();
 
 // Main logic router
-router.post('/teams', async (req, res) => {
+router.post('/squads', async (req, res) => {
   try {
     // Minimize player pool based on their avPoints/price
     const pointGuards = await Player.find({ position: 'PG' });
@@ -23,7 +23,8 @@ router.post('/teams', async (req, res) => {
     const c = calculateBestPlayers(centers, percentage);
 
     // Creating full squads in relation to team's budget
-    const teamBudget = req.body.budget;
+    const teamBudget = Number(req.body.budget);
+
     const allSquads = createTeams(pg, sg, sf, pf, c, teamBudget);
 
     // Sort the squads in descending order of points accumulation projection
@@ -32,14 +33,14 @@ router.post('/teams', async (req, res) => {
     );
 
     const somesquads = sortedSquads.slice(0, 2);
-    console.log(somesquads);
-    res.status(200).send('Calculation done');
+
+    res.status(200).send(somesquads);
   } catch (err) {
     res.status(404).send(err.message);
   }
 });
 
-router.post('/player/create', async (req, res) => {
+router.post('/add-player', async (req, res) => {
   try {
     const player = new Player({
       name: req.body.name,

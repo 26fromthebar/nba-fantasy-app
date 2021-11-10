@@ -1,5 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  /* color: rgba(0, 0, 0, 0.7); */
+  font-size: 1.5rem;
   background-color: lightsteelblue;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 a {
@@ -11,6 +23,20 @@ a {
 a:hover {
   color: darkgoldenrod;
 }
+
+ul {
+  padding-left: 1em;
+}
+
+/* .header {
+  height: 25vh;
+  background-image: url('../img/nba_logo.jpg');
+  background-size: cover;
+  background-position: center;
+
+  background-color: darkmagenta;
+  background-blend-mode: screen;
+} */
 
 .form-create-player {
   display: flex;

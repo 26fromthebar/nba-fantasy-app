@@ -71,16 +71,20 @@ const createSquads = (arr1, arr2, arr3, budget) => {
         const squadIds = squad.map((item) => item._id);
         const squadTeams = squad.map((item) => item.team);
         const squadPrice = squad.map((item) => item.price);
-        const squadBudget = squadPrice.reduce((previousValue, currentValue) => {
-          return previousValue + currentValue;
-        });
+        const squadBudget = Number(
+          parseFloat(
+            squadPrice.reduce((previousValue, currentValue) => {
+              return previousValue + currentValue;
+            })
+          ).toFixed(1)
+        );
         const playerExtectedPoints = squad.map(
           (item) => item.avPoints * item.nextGames
         );
-        const squadExpectedPoints = playerExtectedPoints.reduce(
-          (previousValue, currentValue) => {
+        const squadExpectedPoints = parseInt(
+          playerExtectedPoints.reduce((previousValue, currentValue) => {
             return previousValue + currentValue;
-          }
+          })
         );
         const playerNextGames = squad.map((item) => item.nextGames);
         const squadNextGames = playerNextGames.reduce(
