@@ -20,19 +20,32 @@ findSquadsBtn.addEventListener('click', async (e) => {
     div.classList.add('squad-card');
 
     const html = `
-      <p class="position position--pg">pg</p>
-      <p class="players players--pg">${obj.squadLineup[0]}, ${obj.squadLineup[1]}</p>
-      <p class="position position--sg">sg</p>
-      <p class="players players--sg">${obj.squadLineup[2]}, ${obj.squadLineup[3]}</p>
-      <p class="position position--sf">sf</p>
-      <p class="players players--sf">${obj.squadLineup[4]}, ${obj.squadLineup[5]}</p>
-      <p class="position position--pf">pf</p>
-      <p class="players players--pf">${obj.squadLineup[6]}, ${obj.squadLineup[7]}</p>
-      <p class="position position--c">c</p>
-      <p class="players players--c">${obj.squadLineup[8]}</p>
-      <p class="squad-info budget">Budget: <span>${obj.squadBudget}</span></p>
-      <p class="squad-info points">Expected points: <span>${obj.squadExpectedPoints}</span></p>
-      <p class="squad-info games">Upcoming games: <span>${obj.squadNextGames}</span></p>
+      <div class="squad-players">
+        <p class="position position--pg">pg</p>
+        <p class="players players--pg">${obj.squadLineup[0]}, ${obj.squadLineup[1]}</p>
+        <p class="position position--sg">sg</p>
+        <p class="players players--sg">${obj.squadLineup[2]}, ${obj.squadLineup[3]}</p>
+        <p class="position position--sf">sf</p>
+        <p class="players players--sf">${obj.squadLineup[4]}, ${obj.squadLineup[5]}</p>
+        <p class="position position--pf">pf</p>
+        <p class="players players--pf">${obj.squadLineup[6]}, ${obj.squadLineup[7]}</p>
+        <p class="position position--c">c</p>
+        <p class="players players--c">${obj.squadLineup[8]}</p>
+      </div>
+      <div class="squad-info">
+      <abbr class="abbriviation" title="Upcomind games">
+        <img src="img/flaticon/001-basket-ball.png" alt="Upcoming games"></img>
+      </abbr>
+      <p class="games">${obj.squadNextGames}</p>
+      <abbr class="abbriviation" title="Budget">
+        <img src="img/flaticon/002-money-bag.png" alt="Budget"></img>
+      </abbr>  
+        <p class="budget">${obj.squadBudget}</p>
+      <abbr class="abbriviation" title="Expected points">
+        <img src="img/flaticon/004-stats.png" alt="Expected points"></img>
+      </abbr>    
+        <p class="points">${obj.squadExpectedPoints}</p>
+      </div>
     `;
 
     div.innerHTML = html;

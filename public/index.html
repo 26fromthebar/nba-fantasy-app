@@ -4,35 +4,71 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>NBA fantasy app</title>
+
+    <title>NBA-FLO</title>
   </head>
   <body>
-    <!-- <header class="header"></header> -->
-    <main class="container" data-container>
+    <main class="main" data-container>
       <section class="instructions">
+        <div class="img-container">
+          <img src="img/basketball.png" alt="basketball" />
+        </div>
         <h1 class="heading">
-          NBA Fantasy <br />
-          Lineup Optimizer
+          NBA <br />Fantasy <br />
+          Lineup <br />Optimizer
         </h1>
-        <p class="text">
+        <p class="description">
           Find the top fantasy squads, based on each player's projected points
           over next 20 days.
         </p>
-        <p class="text">Limitations applied to each squad:</p>
-        <ul class="limitations">
-          <li>9-player squads</li>
+        <p class="limitations">Limitations applied to each squad:</p>
+        <ul class="limitations-list">
           <li>
-            2 point guards, 2 shooting guards, 2 small forwards, 2 power
-            forwards, 1 center
+            <!-- <img src="img/basketball1.svg" alt="basketball" /> -->
+            9-player squads
           </li>
-          <li>max 2 players from the same NBA team per squad</li>
+          <li>
+            <!-- <img src="img/basketball1.svg" alt="basketball" /> -->
+            2&nbsp;point&nbsp;guards, 2&nbsp;shooting&nbsp;guards,
+            2&nbsp;small&nbsp;forwards, 2&nbsp;power&nbsp;forwards,
+            1&nbsp;center
+          </li>
+          <li>
+            <!-- <img src="img/basketball1.svg" alt="basketball" /> -->
+            max 2 players from the same NBA team per squad
+          </li>
         </ul>
-        <!-- <form action="/squads" method="post"> -->
-        <label for="input-budget">Insert squad's budget</label>
-        <input type="number" id="input-budget" required />
-        <button data-btn-find-squads>Find squads</button>
-        <!-- </form> -->
+        <div class="input-container">
+          <label for="input-budget" class="label">Insert squad's budget</label>
+          <input class="input" type="number" id="input-budget" required />
+        </div>
+        <button class="btn" data-btn-find-squads>Find squads</button>
       </section>
     </main>
     <script src="/js/client.js"></script>

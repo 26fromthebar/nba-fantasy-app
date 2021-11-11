@@ -1,89 +1,193 @@
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
-  /* color: rgba(0, 0, 0, 0.7); */
-  font-size: 1.5rem;
-  background-color: lightsteelblue;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  background-color: #142b4b;
+
+  color: aliceblue;
 }
 
-h1 {
-  font-size: 3rem;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+li::marker {
+  color: aliceblue;
+  font-size: 2rem;
 }
 
 a {
+  text-decoration: none;
+}
+a:link,
+a:active,
+a:visited {
+  color: currentColor;
+}
+
+/*main*/
+.main {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/*instructions section*/
+.instructions {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.img-container {
+  width: 35%;
+  margin-left: auto;
+  padding-top: 2em;
+}
+
+.heading {
   font-size: 3rem;
-  font-weight: bold;
-  color: darkmagenta;
+  line-height: 1.2;
+  margin-bottom: 1em;
 }
 
-a:hover {
-  color: darkgoldenrod;
+.description {
+  margin-bottom: 0.5em;
 }
 
-ul {
-  padding-left: 1em;
+.limitations-list {
+  margin: 0 0 2em 1em;
 }
 
-/* .header {
-  height: 25vh;
-  background-image: url('../img/nba_logo.jpg');
-  background-size: cover;
-  background-position: center;
-
-  background-color: darkmagenta;
-  background-blend-mode: screen;
-} */
-
-.form-create-player {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-
-  margin-top: 8em;
+.input-container {
+  text-align: end;
 }
 
-.form-create-player input,
-.form-create-player label,
-.form-create-player select,
-.form-btn {
-  font-size: 1.5rem;
-}
-
-.form-create-player input,
-.form-create-player select {
-  margin-bottom: 0.75em;
-  padding: 0.5em 1.5em;
-  border-radius: 5px;
-  background-color: #fff;
-  outline-color: darkmagenta;
-}
-
-.form-create-player input {
-  width: 30%;
-}
-
-.form-create-player label {
-  margin-bottom: 0.15em;
-  color: darkmagenta;
-}
-
-.form-btn {
-  padding: 0.75em 2.25em;
-
-  color: white;
-  font-weight: bold;
-
+.input {
+  width: 6em;
+  padding: 0.5em 1em;
   border: none;
-  border-radius: 5px;
-  background-color: darkmagenta;
-  cursor: pointer;
+  border-radius: 2rem;
+
+  font-size: inherit;
+  font-weight: inherit;
 }
 
-.form-btn:hover {
-  background-color: darkgoldenrod;
+.input:focus,
+.btn:focus {
+  outline-color: #c14a09;
+}
+
+.btn {
+  display: block;
+  margin: 1.25em 0 1.25em auto;
+
+  border: 0.3rem solid aliceblue;
+  border-radius: 3rem;
+  padding: 0.7rem 2rem;
+
+  font-weight: 600;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  color: aliceblue;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  color: #142b4b;
+  background-color: aliceblue;
+}
+
+/*results section*/
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25em;
+
+  width: 90%;
+  margin: 0 auto;
+}
+.squad-card {
+  padding: 0.5em;
+  color: #142b4b;
+
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+.position {
+  font-weight: 700;
+  color: #c14a09;
+}
+
+.players {
+  margin-bottom: 0.5em;
+
+  font-size: 1.8rem;
+}
+
+.squad-info {
+  display: flex;
+  gap: 0.5em;
+
+  padding-top: 1em;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.budget {
+  margin-right: 0.75em;
+}
+
+.games {
+  margin-right: 0.75em;
+}
+
+@media screen and (min-width: 43.75em) {
+  body {
+    font-size: 1.8rem;
+  }
+  .heading {
+    font-size: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  .img-container {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 81.25em) {
+  body {
+    font-size: 2rem;
+  }
+  .heading {
+    font-size: 6rem;
+  }
+
+  .img-container {
+    width: 20%;
+  }
 }
