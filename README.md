@@ -8,6 +8,6 @@ Squad’s projected points are the sum of each player’s projected points over 
     • squad’s budget
     • squad’s total projected points
 
-In the source code we first minimize the players’ pool keeping the ones with the best average points per salary, then create doubles, quadruplets and 9-player squads applying the players per squad and budget limitations and we finally sort the results in a descending order. In the curent state of the app we choose to display on screen only the first 18 squads.
+In the source code we first minimize the players’ pool keeping the ones with the best average points per salary, then create doubles, quadruplets and 9-player squads applying the players per squad and budget limitations and we finally sort the results in a descending order. In the current state of the app we choose to display on screen only the first 18 squads.
 
 Data passed in the database are checked and renewed regularly.
