@@ -33,7 +33,7 @@ findSquadsBtn.addEventListener('click', async (e) => {
         <p class="players players--c">${obj.squadLineup[8]}</p>
       </div>
       <div class="squad-info">
-      <abbr class="abbriviation" title="Upcomind games">
+      <abbr class="abbriviation" title="Upcoming games">
         <img src="img/flaticon/001-basket-ball.png" alt="Upcoming games"></img>
       </abbr>
       <p class="games">${obj.squadNextGames}</p>

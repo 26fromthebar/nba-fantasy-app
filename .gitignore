@@ -1,3 +1,6 @@
 *.txt
 node_modules/
 config/
+add_player_styles.css
+add_player.html
+add_player.js

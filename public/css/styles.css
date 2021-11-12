@@ -164,6 +164,7 @@ a:visited {
   margin-right: 0.75em;
 }
 
+/* Media queries */
 @media screen and (min-width: 43.75em) {
   body {
     font-size: 1.8rem;
