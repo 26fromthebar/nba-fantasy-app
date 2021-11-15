@@ -1,6 +1,8 @@
 const express = require('express');
+const path = require('path');
 const Player = require('../models/player');
 const { calculateBestPlayers, createTeams } = require('../utils/utils');
+const { authAdmin, authUser } = require('../middlewares/auth');
 
 const router = new express.Router();
 
@@ -31,11 +33,37 @@ router.post('/squads', async (req, res) => {
       (a, b) => b.squadExpectedPoints - a.squadExpectedPoints
     );
 
-    const somesquads = sortedSquads.slice(0, 12);
+    const someSquads = sortedSquads.slice(0, 12);
 
-    res.status(200).send(somesquads);
+    res.status(200).send(someSquads);
   } catch (err) {
     res.status(404).send(err.message);
+  }
+});
+
+// Get admin add-player page
+router.get('/add-player', authAdmin, (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public', 'add_player.html'));
+});
+
+// Admin add player to DB
+router.post('/add-player', authAdmin, async (req, res) => {
+  try {
+    const player = new Player({
+      name: req.body.name,
+      team: req.body.team.toUpperCase(),
+      position: req.body.position.toUpperCase(),
+      price: parseFloat(req.body.price),
+      avPoints: parseFloat(req.body.avPoints),
+      nextGames: parseFloat(req.body.nextGames),
+    });
+    await player.save();
+    res.status(200).send({
+      message: `Player '${player.name}' has been added to database`,
+      player,
+    });
+  } catch (err) {
+    res.status(400).send(err.message);
   }
 });
 

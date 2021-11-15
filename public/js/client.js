@@ -4,22 +4,23 @@ const budgetInput = document.getElementById('input-budget');
 const main = document.querySelector('[data-container]');
 
 // Find squads
-findSquadsBtn.addEventListener('click', async (e) => {
-  if (document.querySelector('.results')) {
-    document.querySelector('.results').remove();
-  }
-  let budget = budgetInput.value;
-  const response = await axios.post('/squads', { budget });
+if (findSquadsBtn) {
+  findSquadsBtn.addEventListener('click', async (e) => {
+    if (document.querySelector('.results')) {
+      document.querySelector('.results').remove();
+    }
+    let budget = budgetInput.value;
+    const response = await axios.post('/squads', { budget });
 
-  const resultsSection = document.createElement('section');
-  resultsSection.classList.add('results');
-  main.append(resultsSection);
+    const resultsSection = document.createElement('section');
+    resultsSection.classList.add('results');
+    main.append(resultsSection);
 
-  response.data.forEach((obj) => {
-    const div = document.createElement('div');
-    div.classList.add('squad-card');
+    response.data.forEach((obj) => {
+      const div = document.createElement('div');
+      div.classList.add('squad-card');
 
-    const html = `
+      const html = `
       <div class="squad-players">
         <p class="position position--pg">pg</p>
         <p class="players players--pg">${obj.squadLineup[0]}, ${obj.squadLineup[1]}</p>
@@ -48,7 +49,8 @@ findSquadsBtn.addEventListener('click', async (e) => {
       </div>
     `;
 
-    div.innerHTML = html;
-    resultsSection.append(div);
+      div.innerHTML = html;
+      resultsSection.append(div);
+    });
   });
-});
+}

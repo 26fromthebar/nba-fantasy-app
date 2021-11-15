@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon/favicon-16x16.png"
+    />
+    <link rel="stylesheet" href="./css/add_player_styles.css" />
+    <title>NBA fantasy app</title>
+  </head>
+  <body>
+    <main class="main">
+      <a href="/">home</a>
+      <form action="/add-player" method="POST" class="form-create-player">
+        <label for="form-name">Name</label>
+        <input type="text" id="form-name" name="name" />
+        <label for="form-team">Team</label>
+        <input type="text" id="form-team" name="team" />
+        <label for="form-position">Position</label>
+        <select type="text" id="form-position" name="position">
+          <option value="pg" selected>PG</option>
+          <option value="sg">SG</option>
+          <option value="sf">SF</option>
+          <option value="pf">PF</option>
+          <option value="c">C</option>
+        </select>
+        <label for="form-price">Price</label>
+        <input type="text" id="form-price" name="price" />
+        <label for="form-avpoints">Average points</label>
+        <input type="text" id="form-avpoints" name="avPoints" />
+        <label for="form-next-games">Games to play next 10 days</label>
+        <input type="text" id="form-next-games" name="nextGames" />
+        <button type="submit" class="form-btn">Add player</button>
+      </form>
+    </main>
+    <script src="./js/client.js"></script>
+  </body>
+</html>
