@@ -14,7 +14,7 @@ router.post('/squads', async (req, res) => {
     const powerForwards = await Player.find({ position: 'PF' });
     const centers = await Player.find({ position: 'C' });
 
-    const percentage = 0.2;
+    const percentage = 0.4;
 
     const pg = calculateBestPlayers(pointGuards, percentage);
     const sg = calculateBestPlayers(shootingGuards, percentage);
