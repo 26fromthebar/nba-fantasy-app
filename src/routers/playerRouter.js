@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const Player = require('../models/player');
 const { calculateBestPlayers, createTeams } = require('../utils/utils');
-const { authAdmin, authUser } = require('../middlewares/auth');
 
 const router = new express.Router();
 
@@ -42,12 +41,12 @@ router.post('/squads', async (req, res) => {
 });
 
 // Get admin add-player page
-router.get('/add-player', authAdmin, (req, res) => {
+router.get('/add-player', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public', 'add_player.html'));
 });
 
-// Admin add player to DB
-router.post('/add-player', authAdmin, async (req, res) => {
+// Add player to DB
+router.post('/add-player', async (req, res) => {
   try {
     const player = new Player({
       name: req.body.name,
